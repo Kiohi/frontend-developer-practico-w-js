@@ -3,7 +3,7 @@ const burgerMenu = document.querySelector(".menu");
 const desktopMenu = document.querySelector(".desktop-menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const productDetail = document.querySelector(".product-detail");
-const shoppingCart = document.querySelector(".navbar-shopping-cart");
+const shoppingCart = document.querySelector(".navbar-cart-item");
 
 
 
@@ -61,7 +61,7 @@ productList.push({
 });
 
 function renderProducts(products) {
-   productList.forEach(item => {
+   products.forEach(item => {
       const product_card = document.createElement('div');
       product_card.classList.add('product-card');
 
@@ -92,8 +92,8 @@ function renderProducts(products) {
          const cart_list = document.querySelector('.cart');
           
          // const order_content = document.querySelector('.my-order-content');
-         const shopping_cart = document.createElement('div');
-         shopping_cart.classList.add('shopping-cart');
+         const cart_item = document.createElement('div');
+         cart_item.classList.add('cart-item');
          const figure = document.createElement('figure');
 
          const item_img = document.createElement('img');
@@ -111,7 +111,7 @@ function renderProducts(products) {
          close_img.setAttribute('src', './icons/icon_close.png');
          close_img.setAttribute('alt', 'close');
          
-         shopping_cart.style =
+         cart_item.style =
          "display: grid; grid-template-columns: auto 1fr auto auto; gap:16px; margin-bottom: 24px; align-items: center";
          figure.style = "margin: 0;";
          item_img.style = "width: 70px; height: 70px; border-radius: 20px; object-fit: cover; border: 1px solid black;";
@@ -119,11 +119,16 @@ function renderProducts(products) {
          item_price.style = 'font-weight: bold';
          // close_img.style = 'height: 14px; width: 14px';
 
-         shopping_cart.append(figure);
-         shopping_cart.append(item_name);
-         shopping_cart.append(item_price);
-         shopping_cart.append(close_img);
-         cart_list.append(shopping_cart);
+         cart_item.append(figure);
+         cart_item.append(item_name);
+         cart_item.append(item_price);
+         cart_item.append(close_img);
+         cart_list.append(cart_item);
+
+         const items_count = document.querySelector("#items-count");
+         var count = parseInt(items_count.innerHTML);
+         items_count.innerHTML = count + 1;
+         
 
 
       });

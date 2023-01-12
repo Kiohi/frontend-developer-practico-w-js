@@ -80,12 +80,12 @@ nav {
    color: inherit;
 }
 
-.navbar-shopping-cart {
+.navbar-cart-item {
    position: relative;
    cursor: pointer;
 }
 
-.navbar-shopping-cart div {
+.navbar-cart-item div {
    width: 16px;
    height: 16px;
    background-color: var(--hospital-green);
@@ -257,7 +257,7 @@ nav {
    font-weight: bold;
 }
 
-.shopping-cart {
+.cart-item {
    display: grid;
    grid-template-columns: auto 1fr auto auto;
    gap: 16px;
@@ -265,12 +265,12 @@ nav {
    align-items: center;
 }
 
-.shopping-cart figure {
+.cart-item figure {
    margin: 0;
    
 }
 
-.shopping-cart figure img {
+.cart-item figure img {
    width: 70px;
    height: 70px;
    border-radius: 20px;
@@ -278,11 +278,11 @@ nav {
    border: 1px solid black;
 }
 
-.shopping-cart p:nth-child(2) {
+.cart-item p:nth-child(2) {
    color: var(--very-light-pink);
 }
 
-.shopping-cart p:nth-child(3) {
+.cart-item p:nth-child(3) {
    font-size: var(--md);
    font-weight: bold;
 }
