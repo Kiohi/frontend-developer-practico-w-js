@@ -6,6 +6,7 @@ const productDetail = document.querySelector(".product-detail");
 const shoppingCart = document.querySelector(".navbar-shopping-cart");
 
 
+
 var toggleMobileMenu = burgerMenu.addEventListener("click", () => {
    mobileMenu.classList.toggle("inactive");
 
@@ -40,17 +41,17 @@ const cards_container = document.querySelector('.cards-container');
 const productList = [];
 productList.push({
    name: "Bike",
-   price: 120,
+   price: 30,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
    name: "Bike",
-   price: 120,
+   price: 30,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
    name: "Bike",
-   price: 120,
+   price: 30,
    image: "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
 });
 productList.push({
@@ -83,7 +84,50 @@ function renderProducts(products) {
       const add_img = document.createElement('img');
       add_img.src = './icons/bt_add_to_cart.svg';
       add_img.alt = 'Add to cart';
+      add_img.classList.add('add-to-cart');
+      add_img.style.cursor = 'pointer';
 
+      add_img.addEventListener("click", () => {
+
+         const cart_list = document.querySelector('.cart');
+          
+         // const order_content = document.querySelector('.my-order-content');
+         const shopping_cart = document.createElement('div');
+         shopping_cart.classList.add('shopping-cart');
+         const figure = document.createElement('figure');
+
+         const item_img = document.createElement('img');
+         item_img.setAttribute('src', item.image);
+         item_img.setAttribute('alt', item.name);
+         figure.append(item_img);
+         
+         const item_name = document.createElement('p');
+         item_name.innerHTML = item.name;
+         
+         const item_price = document.createElement('p');
+         item_price.innerHTML = "$" + item.price;
+         
+         const close_img = document.createElement('img');
+         close_img.setAttribute('src', './icons/icon_close.png');
+         close_img.setAttribute('alt', 'close');
+         
+         shopping_cart.style =
+         "display: grid; grid-template-columns: auto 1fr auto auto; gap:16px; margin-bottom: 24px; align-items: center";
+         figure.style = "margin: 0;";
+         item_img.style = "width: 70px; height: 70px; border-radius: 20px; object-fit: cover; border: 1px solid black;";
+         item_name.style = 'color: #C7C7C7';
+         item_price.style = 'font-weight: bold';
+         // close_img.style = 'height: 14px; width: 14px';
+
+         shopping_cart.append(figure);
+         shopping_cart.append(item_name);
+         shopping_cart.append(item_price);
+         shopping_cart.append(close_img);
+         cart_list.append(shopping_cart);
+
+
+      });
+      
 
       cards_container.appendChild(product_card);
       product_card.append(product_img, product_info);

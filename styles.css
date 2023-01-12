@@ -149,8 +149,12 @@ nav {
 .mobile-menu {
    padding: 24px;
    position: absolute;
-   top: 60px;
+   top: 61px;
+   left: 0;
    background-color: white;
+   border-right: 1px solid var(--very-light-pink) ;
+   border-bottom: 1px solid var(--very-light-pink);
+   border-radius: 3%;
 }
 
 .mobile-menu a {
@@ -191,7 +195,27 @@ nav {
    box-sizing: border-box;
    position: absolute;
    right: 0;
+   border-left: 1px solid var(--very-light-pink) ;
+   border-bottom: 1px solid var(--very-light-pink);
+   border-radius: 3%;
+   max-height: 60%;
 }
+
+.product-detail .cart{
+   max-height: 40vh;
+   overflow: scroll;
+   overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+   width: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb{
+   border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.5); 
+}
+
 
 .title-container {
    display: flex;
@@ -243,6 +267,7 @@ nav {
 
 .shopping-cart figure {
    margin: 0;
+   
 }
 
 .shopping-cart figure img {
@@ -250,6 +275,7 @@ nav {
    height: 70px;
    border-radius: 20px;
    object-fit: cover;
+   border: 1px solid black;
 }
 
 .shopping-cart p:nth-child(2) {
@@ -342,6 +368,14 @@ nav {
     .product-card img {
       width: 140px;
       height: 140px;
+    }
+
+    .product-detail {
+      max-height: 100%;
+    }
+
+    .product-detail .cart{
+      max-height: 70vh;
     }
 }
 
